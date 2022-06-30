@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="report_student_list" model="ir.actions.report">
+        <field name="name">Thông tin học sinh</field>
+        <field name="model">education.student</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">viin_education.education_student_information_template</field>
+        <field name="report_file">viin_education.education_student_information_template</field>
+        <field name="binding_model_id" ref="model_education_student"/>
+        <field name="binding_type">report</field>
+    </record>
+    
+    
+</odoo>
+
+
+
+
+
+
+
+
+

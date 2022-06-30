@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+	<record id="teacher_level_view_tree" model="ir.ui.view">
+		<field name="name">teacher.level.tree</field>
+		<field name="model">teacher.level</field>
+		<field name="arch" type="xml">
+			<tree string="teacher Level Tree">
+				<field name="name"></field>
+				<field name="code"></field>
+			</tree>
+		</field>
+	</record>
+	
+	<record id="teacher_level_view_form" model="ir.ui.view">
+		<field name="name">teacher.level.from</field>
+		<field name="model">teacher.level</field>
+		<field name="arch" type="xml">
+			<form string ="Teacher Level form">
+				<sheet>
+					<group>
+						<field name="name"></field>
+						<field name="code"></field>
+					</group>
+				</sheet>
+			</form>
+		</field>	
+	</record>
+	
+	<record id="teacher_level_action"
+		model="ir.actions.act_window">
+		<field name="name">teacher Level</field>
+		<field name="res_model">teacher.level</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+	
+	<menuitem id="teacher_level_menu"
+		action="teacher_level_action" parent="education_teacher_menu_root"
+		name="Teacher Level" sequence="51" />
+</odoo>

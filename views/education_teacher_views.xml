@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+	<record id="education_teacher_view_tree" model="ir.ui.view">
+		<field name="name">education.teacher.tree</field>
+		<field name="model">education.teacher</field>
+		<field name="arch" type="xml">
+			<tree string="Teacher Tree">
+				<field name="name"/>
+				<field name="class_ids" widget="many2many_tags"></field>
+				<field name="school_id"></field>
+				<field name="living_area"></field>
+				<field name="stage_id" optional="show"></field>
+			</tree>
+		</field>
+	</record>
+	
+	<record id="education_teacher_view_form" model="ir.ui.view">
+		<field name="name">education.teacher.from</field>
+		<field name="model">education.teacher</field>
+		<field name="arch" type="xml">
+			<form string ="Teacher form">
+				<sheet>
+					<div class="oe_button_box" name="button_box">
+					    <button class="oe_stat_button" type="action" name="%(education_class_action)d" icon="fa-user">
+					        <field string="Lớp học" name="class_count" widget="statinfo"/>
+					    </button>
+					</div>
+					
+					<field name="avatar" widget="image" class="oe_avatar"></field>
+					<div class="row">
+						<div class="column">
+							<group>
+								<field name="first_name"></field>
+								<field name="last_name"></field>
+								<field name="teacher_code"></field>
+								<field name="english_level"></field>
+								<field name="start_working_date"></field>
+								<field name="years_of_working"></field>
+								<field name="stage_id"></field>
+							</group>
+						</div>
+					</div>
+					
+					<notebook>
+						<page string="Login Account">
+							<group>
+								<field name="user_id"></field>
+								<field name="password"></field>
+							</group>
+						</page>
+						
+						<page string="School and Class">
+							<group>
+								<group>
+									<field name="school_id"></field>
+									<field name="living_area"></field>
+								</group>
+							</group>
+							
+							<group>
+								<field name="class_ids"></field>
+							</group>
+							
+						</page>
+						
+						<page string="Salary and bonus">
+							<group>
+								<field name="salary"></field>
+								<field name="bonus"></field>
+							</group>
+						</page>
+						
+						<page string="Description">
+							<group>
+								<field name="description"></field>
+							</group>
+						</page>
+						
+						<page string="Functions">
+							<group>
+								<header>
+									
+								</header>
+							</group>
+							
+							<group>
+								<group>
+									<field name="dismissal_reason"></field>
+									<button name="action_dismissal" type="object" string="Dimissal this teacher" class="btn-primary"></button>
+								</group>
+								<button name="update_retired_teacher" type="object" string="update retired teacher"></button>
+								<button name="create_teacher" type="object" string="create a teacher"></button>
+								<button name="unlink_auto_generated_teacher" type="object" string="unlink auto-generated teacher" confirm="Are you sure?"></button>
+								<button name="group_teacher_by_living_area" type="object" string="group teacher by living area"></button>
+								<button name="get_all_teacher" type="object" string="get all teacher"></button>
+								<button name="get_teacher_retired_search" type="object" string="get teacher retired using search"></button>
+								<button name="get_teacher_reired_filter" type="object" string="get teacher retired using filtered"></button>
+								<button name="get_teacher_retired_map" type="object" string="get teacher retired using mapped"></button>
+							</group>
+						</page>
+						
+					</notebook>
+				</sheet>
+			</form>
+		</field>	
+	</record>
+	
+	<record id="education_teacher_view_search" model="ir.ui.view">
+		<field name="name">Education.teachere.search</field>
+		<field name="model">education.teacher</field>
+		<field name="arch" type="xml">
+			<search string="teacher search">
+				<field name="name" string="name or class id" filter_domain="['|', ('name', 'ilike', self), ('class_ids', 'ilike', self)]"></field>
+				
+			</search>
+		</field>
+	</record>
+	
+	<record model="ir.ui.view" id="education_teacher_view_graph">
+		<field name="name">education.teacher.view.graph</field>
+		<field name="model">education.teacher</field>
+		<!-- <field name="type">graph</field> -->
+		<field name="arch" type="xml">
+			<graph string="Teacher graph">
+				<field name="living_area"></field>
+				<!-- <field name="english_level"></field> -->
+			</graph>
+		</field>
+	</record>
+	
+	<record id="quick_create_education_teacher" model="ir.ui.view">
+		<field name="name">education.teacher.form.minimal</field>
+		<field name="model">education.teacher</field>
+		<field name="arch" type="xml">
+	        <form>
+	            <group>
+	                <field name="name"/>
+	                <field name="teacher_code"/>
+	                <field name="school_id"/>
+	            </group>
+	        </form>
+	    </field>
+	</record>
+	
+	<record id="educaion_teacher_view_kanban" model="ir.ui.view">
+		<field name="name">education.teacher.view.kanban</field>
+		<field name="model">education.teacher</field>
+		<field name="arch" type="xml">
+			<kanban default_group_by="stage_id" quick_create_view="viin_education.quick_create_education_teacher" on_create="quick_create">
+	            <field name="id"/>
+	            <templates>
+	                <t t-name="kanban-box">
+	                    <div class="oe_kanban_global_click o_kanban_record_has_image_fill o_res_partner_kanban">
+	                        <div class="o_kanban_image">
+	                            <img t-att-src="kanban_image('education.teacher', 'avatar', record.id.raw_value)" alt="Teacher" class="o_image_64_contain"/>
+	                        </div>
+	                        <div class="oe_kanban_details">
+	                            <strong class="o_kanban_record_title oe_partner_heading">
+	                                <field name="name"/>
+	                            </strong>
+	                            <div class="o_kanban_tags_section oe_kanban_partner_categories"/>
+	                            <ul>
+	                                <li>
+	                                    <field name="teacher_code"/>
+	                                </li>
+	                                <li>
+	                                    <field name="school_id"/>
+	                                </li>
+	                                <li>
+	                                    <field name="living_area"/>
+	                                </li>
+	                            </ul>
+	                            <div class="oe_kanban_partner_links"/>
+	                        </div>
+	                    </div>
+	                </t>
+	            </templates>
+	        </kanban>
+		</field>
+	</record>
+	
+	<record id="education_teacher_action"
+		model="ir.actions.act_window">
+		<field name="name">Teacher action</field>
+		<field name="res_model">education.teacher</field>
+		<field name="view_mode">kanban,tree,form,graph</field>
+		<field name="view_ids" eval="[(5, 0, 0),
+			(0, 0, {'view_mode': 'tree', 'view_id': ref('education_teacher_view_tree')}),
+		    (0, 0, {'view_mode': 'form', 'view_id': ref('education_teacher_view_form')})]"/>
+		
+	</record>
+	
+	<menuitem id="education_teacher_menu_root"
+		parent="education_student_menu_root"
+		name="Teacher" sequence="44"></menuitem>
+	
+	<menuitem id="education_teacher_menu"
+		action="education_teacher_action" parent="education_teacher_menu_root"
+		name="Teacher Menutitem" sequence="10"/>
+</odoo>
+
+
+

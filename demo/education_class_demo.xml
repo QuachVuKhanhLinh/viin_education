@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo noupdate="1">
+	<!-- <record id="demo_education_class_10C1" model="education.class" forcecreate="False">
+		<field name="name">10C1</field>
+		<field name="school_id" ref="pham_ngu_lao_school"></field>
+		<field name="teacher_ids" eval="[(6, 0, [ref('demo_education_teacher_default1'),
+												ref('demo_education_teacher_default2')])]"></field>
+	</record>
+	
+	<record id="demo_education_class_10C2" model="education.class" forcecreate="False">
+		<field name="name">10C2</field>
+		<field name="school_id" ref="pham_ngu_lao_school"></field>
+		<field name="teacher_ids" eval="[(6, 0, [ref('demo_education_teacher_default1'),
+												ref('demo_education_teacher_default2')])]"></field>
+	</record> -->
+	
+</odoo>

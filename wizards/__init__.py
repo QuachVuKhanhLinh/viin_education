@@ -1,0 +1,5 @@
+from . import education_student_dropout_wizard
+from . import education_student_note_wizard
+from . import education_student_description_wizard
+from . import education_teacher_dismissal_wizard
+from . import education_school_group_type_wizard

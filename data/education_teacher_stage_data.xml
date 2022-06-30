@@ -1,0 +1,23 @@
+<odoo noupdate="1">
+    <record id="stage_probation" model="education.teacher.stage">
+    	<field name="name">Probation</field>
+    	<field name="sequence">1</field>
+    	<field name="teacher_state">probation</field>
+    	<field name="fold">False</field>
+    </record>
+    
+    <record id="stage_official" model="education.teacher.stage">
+    	<field name="name">Official</field>
+    	<field name="sequence">2</field>
+    	<field name="teacher_state">official</field>
+    	<field name="fold">False</field>
+    </record>
+    
+    <record id="stage_retired" model="education.teacher.stage">
+    	<field name="name">Retired</field>
+    	<field name="sequence">3</field>
+    	<field name="teacher_state">retired</field>
+    	<field name="fold">False</field>	<!-- <field name="fold" eval="True"/> -->
+    </record>
+    
+</odoo>

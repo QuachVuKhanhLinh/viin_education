@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+	<record id="education_school_view_tree" model="ir.ui.view">
+		<field name="name">school.tree</field>
+		<field name="model">education.school</field>
+		<field name="arch" type="xml">
+			<tree string="education school Tree">
+				<field name="rank"></field>
+				<field name="name" />
+				<field name="address" />
+				<field name="code" />
+				<field name="financial_type" />
+				<field name="class_ids" widget="many2many_tags"/>
+			</tree>
+		</field>
+	</record>
+	
+	<record id="education_school_view_form" model="ir.ui.view">
+		<field name="name">school.from</field>
+		<field name="model">education.school</field>
+		<field name="arch" type="xml">
+			<form string ="education school form">
+				<sheet>
+				
+					<div class="oe_button_box" name="button_box">
+					    <button class="oe_stat_button" type="action" name="%(education_class_action)d" icon="fa-user">
+					        <field string="Lớp học" name="class_count" widget="statinfo"/>
+					    </button>
+					    
+					    <button class="oe_stat_button" type="action" name="%(education_teacher_action)d" icon="fa-user">
+					        <field string="Giáo viên" name="teacher_count" widget="statinfo"/>
+					    </button>
+					    
+					</div>
+					
+					<field name="avatar" widget="image" class="oe_avatar" ></field>
+					
+					<div class="row">
+						<div class="column">
+							<group>
+								<field name="name"></field>
+								<field name="code"></field>
+								<field name="location"></field>
+								<field name="established_date"></field>
+								<field name="years_old_compute"></field>
+								<field name="address"></field>
+							</group>
+						</div>
+					</div>
+					
+					<notebook>
+						<page string="Information">
+							<group>
+								<field name="class_ids"></field>
+								<field name="teacher_ids"></field>
+								<button name="action_group_type" type="object" string="change group type"></button>
+							</group>
+							
+						</page>
+						
+						<page string="Classification">
+							<group>
+								<field name="rank"></field>
+								<field name="financial_type"></field>
+								<field name="group_type"></field>
+								<field name="plus_scrore"></field>
+							</group>
+						</page>
+						
+						<page string="Functions">
+							<group string="buttoms">
+								<button name="show_all_public_and_private_schools_accessright_admin" type="object" string="show_ school_ accessright _admin"></button>
+								<button name="create_school" type="object" string="create school"></button>
+								<button name="del_schools_have_no_code" type="object" string="del schools have no code"></button>
+								<button name="show_schools_in_location_northern" type="object" string="schools in northern"></button>
+								<button name="show_schools_in_location_central" type="object" string="schools in celtral"></button>
+								<button name="show_schools_in_location_southern" type="object" string="schools in southern"></button>
+								<button name="group_by_location" type="object" string="group by location"></button>
+								<button name="show_school_names" type="object" string="show shool names"></button>
+								<button name="show_classes_in_school" type="object" string="show classes in school"></button>
+							</group>
+						</page>
+						
+					</notebook>
+					
+				</sheet>
+				
+			</form>
+		</field>	
+	</record>
+	
+	<record model="ir.ui.view" id="education_school_view_search">
+		<field name="name">education.school.view.search</field>
+		<field name="model">education.school</field>
+		<field name="arch" type="xml">
+			<search string="School search">
+				<field name="name" string="name or address" filter_domain="['|', ('name', 'ilike', self), ('address','ilike',self)]"></field>
+				<field name="code"></field>
+			</search>
+		</field>
+	</record>
+	
+	<record model="ir.ui.view" id="education_school_view_graph">
+		<field name="name">education.school.view.graph</field>
+		<field name="model">education.school</field>
+		<field name="arch" type="xml">
+			<graph string="School Graph">
+				<field name="location"></field>
+				<field name="financial_type"></field>
+			</graph>
+		</field>
+	</record>
+	
+	<record id="quick_create_education_school" model="ir.ui.view">
+		<field name="name">education.school.form.minimal</field>
+		<field name="model">education.school</field>
+		<field name="arch" type="xml">
+	        <form>
+	            <group>
+	                <field name="name" attrs="{'required': True}"/>
+	                <field name="established_date" attrs="{'required': True}"/>
+	            </group>
+	        </form>
+	    </field>
+	    
+	</record>
+	
+	<record id="education_school_view_kanban" model="ir.ui.view">
+		<field name="name">education.school.view.kanban</field>
+		<field name="model">education.school</field>
+		<field name="arch" type="xml">
+			<kanban class="o_kanban_mobile">
+	            <field name="id"/>
+	            <field name="name"/>
+	            <field name="avatar"/>
+	            <field name="code"/>
+	            <field name="address"/>
+	            <field name="location"/>
+	            
+	            <templates>
+				    <t t-name="kanban-box">
+				        <div class="oe_kanban_global_click o_kanban_record_has_image_fill">
+				            
+				            <div class="o_kanban_image_fill_left" t-attf-style="background-image:url('#{kanban_image('education.school', 'avatar', record.id.raw_value,  placeholder)}')">
+				            </div>
+				            
+				            <div class="oe_kanban_details">
+	                            <strong class="o_kanban_record_title oe_partner_heading">
+	                                <field name="name"/>
+	                            </strong>
+	                
+	                            <ul>
+	                                <li><field name="code"/></li>
+	                                <li><field name="address"/></li>
+	                                <li><field name="location"/></li>
+	                            </ul>
+	                        
+	                        </div>
+				        </div>
+				    </t>
+				</templates>
+			</kanban>
+		</field>
+	</record>
+	
+	<record id="education_school_action" model="ir.actions.act_window">
+		<field name="name">Schools Actions</field>
+		<field name="res_model">education.school</field>
+		<field name="view_mode">kanban,tree,graph,form</field>
+		<field name="view_ids" eval="[(5, 0, 0),
+			(0, 0, {'view_mode': 'tree', 'view_id': ref('education_school_view_tree')}),
+		    (0, 0, {'view_mode': 'form', 'view_id': ref('education_school_view_form')})]"/>
+	</record>
+	
+	<menuitem id="education_school_menu"
+		action="education_school_action" parent="education_student_menu_root"
+		name="School Menuitem" sequence="40" />
+</odoo>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+	<record id="education_student_note_wizard_form" model="ir.ui.view">
+		<field name="name">education.student.note.form</field>
+		<field name="model">education.student.note.wizard</field>
+		<field name="arch" type="xml">
+			<form string="Notes for selected students">
+				<group>
+					<field name="student_ids"></field>
+					<field name="notes"></field>
+					
+				</group>
+				
+				<footer>
+					<button name="set_student_note" 
+							string="Update notes" type="object" class="oe_right oe_highlight"/>
+					<button special="cancel" string="Cancel" class="oe_right"/>
+				</footer>
+				
+			</form>
+		</field>
+	</record>
+	
+	<record id="education_student_note_wizard_action" model="ir.actions.act_window">
+		<field name="name">Update notes</field>
+		<field name="res_model">education.student.note.wizard</field>
+		<field name="view_mode">form</field>
+		<field name="view_id" ref="education_student_note_wizard_form"></field>
+		<field name="binding_model_id" ref="model_education_student"></field>
+		<field name="target">new</field>
+	</record>
+	
+	
+	
+</odoo>

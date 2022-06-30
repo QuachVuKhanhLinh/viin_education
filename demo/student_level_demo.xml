@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="demo_student_level_high" model="student.level">
+        <field name="name">High School</field>
+    </record>
+    
+    <record id="demo_student_level_elementary" model="student.level">
+    	<field name="name">Elementary School</field>
+    </record>
+    
+</odoo>

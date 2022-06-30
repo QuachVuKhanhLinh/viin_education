@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+	<record id="education_student_stage_view_tree" model="ir.ui.view">
+		<field name="name">education.student.stage.tree</field>
+		<field name="model">education.student.stage</field>
+		<field name="arch" type="xml">
+			<tree>
+				<field name="name"></field>
+				<field name="sequence"></field>
+				<field name="fold"></field>
+				<field name="student_state"></field>
+			</tree>
+		</field>
+		
+	</record>
+	
+	<record id="education_student_stage_view_form" model="ir.ui.view">
+		<field name="name">education.student.stage.form</field>
+		<field name="model">education.student.stage</field>
+		<field name="arch" type="xml">
+			<form>
+				<sheet>
+					<group string="Stage details">
+						<field name="name"></field>
+						<field name="sequence"></field>
+						<field name="fold"></field>
+						<field name="student_state"></field>
+					</group>
+				</sheet>
+			</form>
+		</field>
+	</record>
+	
+	<record id="education_student_stage_action" model="ir.actions.act_window">
+		<field name="name">Student Stages</field>
+		<field name="res_model">education.student.stage</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+	
+	<menuitem id="education_student_stage_menu" action="education_student_stage_action"
+				parent="education_student_menu_root_root"
+				name="Student Stages" sequence="66"></menuitem>
+	
+</odoo>

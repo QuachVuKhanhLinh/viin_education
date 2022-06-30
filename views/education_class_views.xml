@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<record id="education_class_view_tree" model="ir.ui.view">
+		<field name="name">Education class view Tree</field>
+		<field name="model">education.class</field>
+		<field name="arch" type="xml">
+			<tree string="Class View Tree">
+				<field name="name"></field>
+				<field name="school_id"></field>
+				<field name="teacher_ids" widget="many2many_tags"></field>
+				<field name="student_ids" widget="many2many_tags"></field>
+			</tree>
+		</field>	
+	</record>
+	
+	<record id="education_class_view_form" model="ir.ui.view">
+		<field name="name">Education class view Form</field>
+		<field name="model">education.class</field>
+		<field name="arch" type="xml">
+			<form string="Class View Form">
+				<sheet>
+					<div class="oe_button_box" name="button_box">
+					    <button class="oe_stat_button" type="action" name="%(education_student_action)d" icon="fa-user">
+					        <field string="Học sinh" name="student_count" widget="statinfo"/>
+					    </button>
+					</div>
+					
+					<notebook>
+						<page string="Information">
+							<group>
+								<field name="name"></field>
+								<field name="school_id"></field>
+							</group>
+							
+							<group>
+								<field name="teacher_ids"></field>
+								<field name="student_ids"></field>
+							</group>
+							
+						</page>
+						
+						<page string="Functions">
+							<group>
+								<button name="create_classes" type="object" string="Create classes"></button>
+								<button name="classes_has_student" type="object" string="Class has students"></button>
+								<button name='change_class_name' type='object' string='Change class name into VIP'></button>
+								<button name="get_all_class_name" type="object" string="Get all class names"></button>
+								
+								<button name="add_student" type="object" string="Add a student"></button>
+								<button name="get_student_names" type="object" string="Get student names"></button>
+								<button name="get_all_students" type="object" string="Get all students"></button>
+								<button name="sort_students_by_dob" type="object" string="Sort students by DOB"></button>
+							</group>
+						</page>
+						
+					</notebook>
+				</sheet>
+			</form>
+		</field>
+	</record>
+	
+	<record model="ir.ui.view" id="education_class_view_graph">
+	   <field name="name">education.class.view.graph</field>
+	   <field name="model">education.class</field>
+	   <field name="type">graph</field>
+	   <field name="arch" type="xml">
+	         <graph string="Class View Graph">
+	         	<field name="school_id"/>
+	        </graph>
+	    </field>
+	</record>
+	
+	
+	
+	<record id="education_class_view_kanban" model="ir.ui.view">
+		<field name="name">education.class.view.kanban</field>
+		<field name="model">education.class</field>
+		<field name="arch" type="xml">
+			<kanban class="o_kanban_mobile" create="false" delete="false">
+				<field name="name" />
+				<field name="school_id" />
+				<field name="student_count"/>
+				
+				<templates>
+				    <t t-name="kanban-box">
+				        <div class="d-flex flex-column justify-content-between oe_kanban_global_click">
+				            <field name="name"/>
+				            <field name="school_id"/>
+				            <span>Number of students : <field name="student_count" /></span>
+				
+				            
+				        </div>
+				    </t>
+				</templates>
+			</kanban>
+		</field>
+	</record>
+	
+	
+	<record id="education_class_action"
+		model="ir.actions.act_window">
+		<field name="name">Class Actions</field>
+		<field name="res_model">education.class</field>
+		<field name="view_mode">tree,form,graph,kanban</field>	<!-- ,gantt -->
+	</record>
+	
+	
+	<menuitem id="education_class_menu_root" 
+		parent="education_student_menu_root" 
+		name="Class" sequence="42" ></menuitem>
+	
+	<menuitem id="education_class_menu"
+		action="education_class_action" parent="education_class_menu_root"
+		name="Class Menuitem" sequence="42" />
+	
+</odoo>

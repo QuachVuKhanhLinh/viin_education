@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<record id="education_class_vip_view_tree" model="ir.ui.view">
+		<field name="name">Education class vip view Tree</field>
+		<field name="model">education.class.vip</field>
+		<field name="arch" type="xml">
+			<tree string="Class VIP View Tree">
+				<field name="class_vip_id"></field>
+				<field name="school_id"></field>
+				<field name="teacher_ids" widget="many2many_tags"></field>
+				<field name="sponsor_name"></field>
+				<field name="total_donation"></field>
+				<field name="contact_info"></field>
+			</tree>
+		</field>	
+	</record>
+	
+	<record id="education_class_vip_view_form" model="ir.ui.view">
+		<field name="name">Education class vip view Form</field>
+		<field name="model">education.class.vip</field>
+		<field name="arch" type="xml">
+			<form string="Class View Form">
+				<sheet>
+					<notebook>
+						<page string="Information">
+							<group >
+								<field name="class_vip_id"></field>
+								<field name="school_id"></field>
+								<field name="sponsor_name"></field>
+								<field name="contact_info"></field>
+							</group>
+							
+							<group>
+								<field name="teacher_ids"></field>
+								<field name="student_ids"></field>
+							</group>
+							
+						</page>
+						
+						<page string="Donation">
+							<group>
+								<field name="currency_id"></field>
+								<button name="donate_money" type="object" string="Donate now"></button>
+								<field name="donation"></field>
+								<field name="total_donation"></field>
+							</group>
+						</page>
+					</notebook>
+				</sheet>
+				
+			</form>
+		</field>
+	</record>
+	
+	<!-- <record model="ir.ui.view" id="education_class_vip_view_graph">
+	   <field name="name">education.class.vip.view.graph</field>
+	   <field name="model">education.class.vip</field>
+	   <field name="type">graph</field>
+	   <field name="arch" type="xml">
+	         <graph string="Class Vip View Graph">
+	         	<field name="name" group="True"/>
+	         	
+	        </graph>
+	    </field>
+	</record> -->
+	
+	
+	<record id="education_class_vip_action"
+		model="ir.actions.act_window">
+		<field name="name">Class VIP Actions</field>
+		<field name="res_model">education.class.vip</field>
+		<field name="view_mode">tree,form</field> <!-- ,graph -->
+	</record>
+	
+	<menuitem id="education_class_vip_menu"
+		action="education_class_vip_action" parent="education_class_menu_root"
+		name="Class vip Menuitem" sequence="42" />
+		
+	<!-- <menuitem id="education_class_vip_menu"
+		action="education_class_vip_action" parent="education_student_menu_root"
+		name="Class Menuitem" sequence="42" /> -->
+	
+</odoo>

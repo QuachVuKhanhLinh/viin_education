@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo noupdate="1">
+    <!-- <record id="demo_education_teacher_default1" model="education.teacher">
+    	<field name="name">default 1</field>
+    	<field name="teacher_code">default 1</field>
+    	<field name="english_level">basic</field>
+    	
+    	<field name="school_id" ref="pham_ngu_lao_school"></field>
+    </record>
+    
+    <record id="demo_education_teacher_default2" model="education.teacher">
+    	<field name="name">default 2</field>
+    	<field name="teacher_code">default 2</field>
+    	<field name="english_level">intermediate</field>
+    	
+    	<field name="school_id" ref="pham_ngu_lao_school"></field>
+    </record>
+    
+    <record id="demo_education_teacher_default3" model="education.teacher">
+    	<field name="name">default 3</field>
+    	<field name="teacher_code">default 3</field>
+    	<field name="english_level">advanced</field>
+    	
+    	<field name="school_id" ref="nam_trieu_school"></field>
+    </record> -->
+    
+</odoo>

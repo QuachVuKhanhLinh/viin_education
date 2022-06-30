@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<record id="education_student_dropout_wizard_form" model="ir.ui.view">
+	    <field name="name">education.student.dropout.wizard.form</field>
+	    <field name="model">education.student.dropout.wizard</field>
+	    <field name="arch" type="xml">
+	        <form string="Dropout Reason">
+	            <group>
+	                <field name="student_id" invisible="1"/>
+	                <field name="student_name"/>
+	                <field name="student_code"/>
+	                <field name="dropout_reason"/>
+	            </group>
+	            <footer>
+	                <button name="action_confirm" string="Confirm" type="object" class="oe_highlight"/>
+	                <button special="cancel" string="Cancel"/>
+	            </footer>
+	        </form>
+	    </field>
+	</record>
+	
+	<record id="education_student_dropout_wizard_action" model="ir.actions.act_window">
+	    <field name="name">Drop-out Reason</field>
+	    <field name="type">ir.actions.act_window</field>
+	    <field name="res_model">education.student.dropout.wizard</field>
+	    <field name="view_mode">form</field>
+	    <!-- <field name="binding_model_id" ref="model_education_student"></field> -->
+	    <field name="target">new</field>
+	</record>
+	
+	<!-- <act_window id="student_dropout_action" name="student drop out" 
+		res_model="education.student.dropout.wizard" 
+		src_model="education.student" view_mode="form" target="new"></act_window> -->
+	
+</odoo>
+
+

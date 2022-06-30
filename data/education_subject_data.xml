@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo noupdate="1">
+	<record id="subject_mathematics" model="education.subject">
+        <field name="name">Mathematics</field>
+        <field name="description">Mathematics is an area of knowledge that includes such topics as numbers, formulas and related structures, shapes and the spaces in which they are contained, and quantities and their changes</field>
+    </record>
+    <record id="subject_physics" model="education.subject">
+        <field name="name">Physics</field>
+        <field name="description">Physics is the natural science that studies matter, its fundamental constituents, its motion and behavior through space and time, and the related entities of energy and force.</field>
+    </record>
+    <record id="subject_biology" model="education.subject">
+        <field name="name">Biology</field>
+        <field name="description">Biology is the scientific study of life. It is a natural science with a broad scope but has several unifying themes that tie it together as a single, coherent field.</field>
+    </record>
+    <record id="subject_geography" model="education.subject">
+        <field name="name">Geography</field>
+        <field name="description">Geography is a field of science devoted to the study of the lands, features, inhabitants, and phenomena of the Earth and planets.</field>
+    </record>
+    <record id="subject_philosophy" model="education.subject">
+        <field name="name">Philosophy</field>
+        <field name="description">Philosophy is the systematized study of general and fundamental questions, such as those about existence, reason, knowledge, values, mind, and language.</field>
+    </record>
+</odoo>

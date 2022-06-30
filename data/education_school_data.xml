@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data noupdate="1">
+		<record id="main_school" model="education.school" forcecreate="False">
+			<field name="name">main school</field>
+			<field name="code">main school code</field>
+			<field name="address">main school address</field>
+		</record>
+
+		<record id="pham_ngu_lao_school" model="education.school">
+			<field name="name">Phạm Ngũ Lão</field>
+			<field name="code">PNL</field>
+			<field name="financial_type">public</field>
+			<field name="address">Xã Ngũ Lão - huyện Thủy Nguyên - thành phố Hải Phòng</field>
+			<field name="established_date">1958-07-25</field>
+			<field name="location">northern</field>
+		</record>
+
+		<record id="nam_trieu_school" model="education.school">
+			<field name="name">Nam Triệu</field>
+			<field name="code">NT</field>
+			<field name="financial_type">private</field>
+			<field name="address">thị trấn Minh Đức - huyện Thủy Nguyên - thành phố Đà Nẵng</field>
+			<field name="established_date">1975-09-25</field>
+			<field name="location">central</field>
+		</record>
+	</data>
+</odoo>
+
+
+
+

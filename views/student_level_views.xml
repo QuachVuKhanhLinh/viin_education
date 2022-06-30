@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+	<record id="student_level_view_tree" model="ir.ui.view">
+		<field name="name">student.level.tree</field>
+		<field name="model">student.level</field>
+		<field name="arch" type="xml">
+			<tree string="Student Level Tree">
+				<field name="name" />
+				<field name="sequence" />
+				<field name="code" />
+			</tree>
+		</field>
+	</record>
+	
+	<record id="student_level_view_form" model="ir.ui.view">
+		<field name="name">student.level.from</field>
+		<field name="model">student.level</field>
+		<field name="arch" type="xml">
+			<form string ="Student Level form">
+				<sheet>
+					<group>
+						<group>
+							<field name="name"></field>
+							<field name="sequence"></field>
+						</group>
+						
+						<group>
+							<field name="code"></field>
+						</group>
+						
+					</group>
+				</sheet>
+			</form>
+		</field>	
+	</record>
+	
+	<record id="student_level_action"
+		model="ir.actions.act_window">
+		<field name="name">Student Level</field>
+		<field name="res_model">student.level</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+	
+	<menuitem id="student_level_menu"
+		action="student_level_action" parent="education_student_menu_root_root"
+		name="Student Level" sequence="58" />
+</odoo>

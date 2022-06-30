@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="education_student_score_template">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="viin_education.education_student_internal_layout">
+                    <div class="page">
+                        <h1 class="text-center"> Bảng điểm học sinh <t t-esc="doc.name"/></h1>
+                       	<ul>
+                       		<li>Họ tên: <t t-esc="doc.name"/></li>
+                       		<li>Mã học sinh: <t t-esc="doc.student_code"/></li>
+                       		<li>Lớp: <t t-esc="doc.class_id.name"/></li>
+                       		<li>Trường: <t t-esc="doc.school_id.name"/></li>
+                       		<li>Điểm trung bình: <t t-esc="doc.average_score"/></li>
+                       	</ul>
+                        <table class="table table-condensed">
+                            <thead>
+                                <tr>
+                                    <th>Tên môn học</th>
+                                    <th>Điểm</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr t-foreach="doc.score_ids" t-as="student_score">
+                                    <td><t t-esc="student_score.subject_name"/></td>
+                                    <td><t t-esc="student_score.score"/></td>
+                                    
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

@@ -1,0 +1,23 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_education_student_student,education.student student,model_education_student,viin_education_group_student,1,0,0,0
+access_education_student_stage,education.student.stage student,model_education_student_stage,viin_education_group_student,1,0,0,0
+access_student_level_student,student.level student,model_student_level,viin_education_group_student,1,0,0,0
+access_education_class_student,education.class student,model_education_class,viin_education_group_student,1,0,0,0
+access_education_teacher_student,education.teacher student,model_education_teacher,viin_education_group_student,1,0,0,0
+access_education_student_note_wizard_student,education.student.note.wizard student,model_education_student_note_wizard,viin_education_group_student,1,1,1,1
+access_education_student_description_wizard_student,education.student.description.wizard student,model_education_student_description_wizard,viin_education_group_student,1,1,1,1
+access_education_student_dropout_wizard_student,education.student.dropout.wizard student,model_education_student_dropout_wizard,viin_education_group_student,1,1,1,1
+access_education_subject_student,education.subject student,model_education_subject,viin_education_group_student,1,1,1,1
+access_education_student_teacher,education.student teacher,model_education_student,group_teacher,1,1,1,1
+access_student_level_teacher,student.level teacher,model_student_level,group_teacher,1,1,1,1
+access_education_class_teacher,education.class teacher,model_education_class,group_teacher,1,1,1,1
+access_education_class_vip_teacher,education.class.vip teacher,model_education_class_vip,group_teacher,1,1,1,1
+access_education_teacher_teacher,education.teacher teacher,model_education_teacher,group_teacher,1,1,1,1
+access_education_teacher_stage_teacher,education.teacher.stage teacher,model_education_teacher_stage,group_teacher,1,0,0,0
+access_teacher_level_teacher,teacher.level teacher,model_teacher_level,group_teacher,1,0,0,0
+,,,,,,,
+access_education_teacher_stage_admin,education.teacher.stage admin,model_education_teacher_stage,viin_education_group_admin,1,1,1,1
+access_teacher_level_admin,teacher.level admin,model_teacher_level,viin_education_group_admin,1,1,1,1
+access_education_school_admin,education.school admin,model_education_school,viin_education_group_admin,1,1,1,1
+access_education_student_stage,education.student.stage teacher,model_education_student_stage,group_teacher,1,1,1,1
+access_education_student_score_student,education.student.score student,model_education_student_score,viin_education_group_student,1,1,1,1
