@@ -12,3 +12,9 @@ class EducationStudentScore(models.Model):
     student_id = fields.Many2one('education.student', string='Student id', ondelete='restrict')
     subject_id = fields.Many2one('education.subject', string='Subjects', ondelete='restrict')
     
+    score_letter_scale = fields.Char(string='Score in letter scale', compute='_compute_letter_scale')
+    
+    # @api.depends('score')
+    # def _compute_letter_scale(self):
+    #     for r in self:
+    #         if 
